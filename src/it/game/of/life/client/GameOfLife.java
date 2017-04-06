@@ -57,7 +57,7 @@ public class GameOfLife implements EntryPoint {
 		int iterations = 0;
 
 		manager = new Manager(width,height,iterations);
-		canvas = new GoLCanvas(width, height, 1000, 500);
+		canvas = new GoLCanvas(width, height, 1500, 700);
 
 		canvas.addCellCLickHandler(canvasClickHandler );
 

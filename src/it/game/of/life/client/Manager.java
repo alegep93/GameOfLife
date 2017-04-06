@@ -16,8 +16,8 @@ public class Manager {
 		this.width = width;
 		this.height = height;
 		this.iterations = iterations;
-		griglia = new Grid4N(width, height);
-		//griglia = new Grid8N(width, height);
+		//griglia = new Grid4N(width, height);
+		griglia = new Grid8N(width, height);
 	}
 
 	

@@ -16,16 +16,13 @@ public class Grid8N extends Grid {
 		//left neighboors
 		if(i == 0) {
 			retVal.add(new Coordinates(getMaxX()-1, j));
-			retVal.add(new Coordinates(getMaxX()-1, j+1)); //top-left
 		} else {
 			retVal.add(new Coordinates(i-1, j));
-			retVal.add(new Coordinates(i-1, j+1));
 		}
 		
 		//right neighboors
 		if(i == (getMaxX()-1)) {
 			retVal.add(new Coordinates(0, j));
-			retVal.add(new Coordinates(0+1, j+1));
 		} else {
 			retVal.add(new Coordinates(i+1, j));
 		}
@@ -42,6 +39,50 @@ public class Grid8N extends Grid {
 			retVal.add(new Coordinates(i, 0));
 		} else {
 			retVal.add(new Coordinates(i, j+1));
+		}
+		
+		//top-left
+		if (i == 0 && j < (getMaxY()-1)){
+			retVal.add(new Coordinates(getMaxX()-1, j+1));
+		} else if(i == 0 && j == (getMaxX()-1)){
+			retVal.add(new Coordinates(getMaxX()-1, 0));
+		} else if(i != 0 && j < (getMaxY()-1)){
+			retVal.add(new Coordinates(i-1, j+1));
+		} else if(i != 0 && j == (getMaxY()-1)){
+			retVal.add(new Coordinates(i-1, 0));
+		}
+		
+		//top-right
+		if (i < (getMaxX()-1) && j < (getMaxY()-1)){
+			retVal.add(new Coordinates(i+1, j+1));
+		} else if(i < (getMaxX()-1) && j == (getMaxY()-1)){
+			retVal.add(new Coordinates(i+1, 0));
+		} else if(i == (getMaxX()-1) && j < (getMaxY()-1)){
+			retVal.add(new Coordinates(0, j+1));
+		} else if(i == (getMaxX()-1) && j == (getMaxY()-1)){
+			retVal.add(new Coordinates(0, 0));
+		}
+		
+		//bottom-left
+		if (i > 0 && j > 0){
+			retVal.add(new Coordinates(i-1, j-1));
+		} else if(i == 0 && j > 0){
+			retVal.add(new Coordinates(getMaxX()-1, j-1));
+		} else if(i == 0 && j == 0){
+			retVal.add(new Coordinates(getMaxX()-1, getMaxY()-1));
+		} else if(i != 0 && j == 0){
+			retVal.add(new Coordinates(i-1, getMaxY()-1));
+		}
+		
+		//bottom-right
+		if (i < (getMaxX()-1) && j > 0){
+			retVal.add(new Coordinates(i+1, j-1));
+		} else if(i < (getMaxX()-1) && j == 0){
+			retVal.add(new Coordinates(i+1, getMaxY()-1));
+		} else if(i == (getMaxX()-1) && j > 0){
+			retVal.add(new Coordinates(0, j-1));
+		} else if(i == (getMaxX()-1) && j == 0){
+			retVal.add(new Coordinates(0, getMaxY()-1));
 		}
 		
 		return retVal;
